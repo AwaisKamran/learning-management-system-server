@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.routers import users
+from app.routers import users, events, storage
 
 app = FastAPI(
     title="Learning Management System API",
@@ -19,6 +19,8 @@ app.add_middleware(
 
 # Include routers
 app.include_router(users.router)
+app.include_router(events.router)
+app.include_router(storage.router)
 
 
 @app.get("/")
